@@ -1,0 +1,30 @@
+----------------------------------
+-------- Create database ---------
+----------------------------------
+
+CREATE DATABASE hydroponic_sensor_db
+
+
+
+
+----------------------------------
+---------- Create table ----------
+----------------------------------
+
+CREATE TABLE Sensor_Data (
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    value1 VARCHAR(50),
+    value2 VARCHAR(50),
+    value3 VARCHAR(50),
+    value4 VARCHAR(50),
+    value5 VARCHAR(50)
+)
+
+
+
+
+---------------------------------------
+---------- Delete table data ----------
+---------------------------------------
+
+DELETE FROM sensor_data
