@@ -15,8 +15,8 @@ DallasTemperature sensors(&oneWire);
 
 // ------------- WIFI ---------------
 // Replace with your network credentials
-const char* wifi_ssid     = "runalb.com - 5G";
-const char* wifi_password = "2702runal@2702";
+const char* wifi_ssid     = "wifiname";
+const char* wifi_password = "password";
 
 // REPLACE with your Domain name and URL path or IP address with path
 const char* server_url = "http://192.168.1.20/Hydroponic-WebApp/add-data.php";
