@@ -19,12 +19,13 @@ void setup() {
 
 void loop() {
   sensors.requestTemperatures(); 
-  float temperatureC = sensors.getTempCByIndex(0);
-  float temperatureF = sensors.getTempFByIndex(0);
-  Serial.print(temperatureC);
-  Serial.println("ºC");
-  Serial.print(temperatureF);
-  Serial.println("ºF");
+  float waterTemperatureCelsius = sensors.getTempCByIndex(0);
+  float waterTemperatureFahrenheit = sensors.getTempFByIndex(0);
+  
+  // Print DS18B20 - Water Temp Sensor Values on Serial Monitor
+  Serial.println("DS18B20 - Water Temp Sensor: ");
+  Serial.println("  waterTemperatureCelsius: " + String(waterTemperatureCelsius) + "°C");
+  Serial.println("  waterTemperatureFahrenheit: " +  String(waterTemperatureFahrenheit) + "°F");
   Serial.println(" ");
   delay(5000);
 }
