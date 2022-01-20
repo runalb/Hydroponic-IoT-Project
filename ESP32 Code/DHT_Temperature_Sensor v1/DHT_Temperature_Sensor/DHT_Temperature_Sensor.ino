@@ -55,20 +55,13 @@ void loop() {
   // Compute heat index in Fahrenheit (the default)
   float heatIndexFahrenheit = dht.computeHeatIndex(dhtFahrenheiTemperature, dhtHumidity);
   
-
-  Serial.print(F("Humidity: "));
-  Serial.print(dhtHumidity);
-  Serial.print(F("% "));
+  // Print DHT - Temp Sensor Values on Serial Monitor
+  Serial.println("DHT - Temp Sensor: ");
+  Serial.println("  dhtHumidity: " + String(dhtHumidity) + "%");
+  Serial.println("  dhtTemperatureCelsius: " + String(dhtTemperatureCelsius) + "°C");
+  Serial.println("  dhtTemperatureFahrenheit: " + String(dhtTemperatureFahrenheit) + "°F");
+  Serial.println("  heatIndexCelsius: " + String(heatIndexCelsius) + "°C");
+  Serial.println("  heatIndexFahrenheit: " + String(heatIndexFahrenheit) + "°F");
+  Serial.println(" ");
   
-  Serial.print(F("Temperature: "));
-  Serial.print(dhtTemperatureCelsius);
-  Serial.print(F("°C "));
-  Serial.print(dhtTemperatureFahrenheit);
-  Serial.print(F("°F "));
-  
-  Serial.print(F("Heat index: "));
-  Serial.print(heatIndexCelsius);
-  Serial.print(F("°C "));
-  Serial.print(heatIndexFahrenheit);
-  Serial.println(F("°F"));
 }
