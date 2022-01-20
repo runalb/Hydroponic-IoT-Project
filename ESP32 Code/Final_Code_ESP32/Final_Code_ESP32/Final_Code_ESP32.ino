@@ -72,10 +72,10 @@ void loop() {
   // ----------- Water temp sensor: DS18B20 --------------- 
   sensors.requestTemperatures(); 
   float waterTemperatureCelsius = sensors.getTempCByIndex(0);
-  float waterTemperatureFahrenhei = sensors.getTempFByIndex(0);
+  float waterTemperatureFahrenheit = sensors.getTempFByIndex(0);
   Serial.print(waterTemperatureCelsius);
   Serial.println("ºC");
-  Serial.print(waterTemperatureFahrenhei);
+  Serial.print(waterTemperatureFahrenheit);
   Serial.println("ºF");
   // ----------- [END] Water temp sensor: DS18B20 --------------- 
 
@@ -86,12 +86,12 @@ void loop() {
   // Read temperature as Celsius (the default)
   float dhtTemperatureCelsius = dht.readTemperature();
   // Read temperature as Fahrenheit (isFahrenheit = true)
-  float dhtTemperatureFahrenhei = dht.readTemperature(true);
+  float dhtTemperatureFahrenheit = dht.readTemperature(true);
 
   // Compute heat index in Celsius (isFahreheit = false)
-  float heatIndexCelsius = dht.computeHeatIndex(dhtCelsiusTemperature, dhtHumidity, false);
+  float heatIndexCelsius = dht.computeHeatIndex(dhtTemperatureCelsius, dhtHumidity, false);
   // Compute heat index in Fahrenheit (the default)
-  float heatIndexFahrenheit = dht.computeHeatIndex(dhtFahrenheiTemperature, dhtHumidity);
+  float heatIndexFahrenheit = dht.computeHeatIndex(dhtTemperatureFahrenheit, dhtHumidity);
   
   // Print DHT Sensor Values on Serial Monitor
   Serial.print(F("Humidity: "));
@@ -101,7 +101,7 @@ void loop() {
   Serial.print(F("Temperature: "));
   Serial.print(dhtTemperatureCelsius);
   Serial.print(F("°C "));
-  Serial.print(dhtTemperatureFahrenhei);
+  Serial.print(dhtTemperatureFahrenheit);
   Serial.print(F("°F "));
   
   Serial.print(F("Heat index: "));
@@ -120,8 +120,8 @@ void loop() {
     HTTPClient http;
 
     // GET query
-    String waterTempSensor = "?waterTemperatureCelsius=" + String(waterTemperatureCelsius) + "&waterTemperatureFahrenhei=" + String(waterTemperatureFahrenhei);
-    String dhtTempSensor = "&dhtHumidity=" + String(dhtHumidity) + "&dhtTemperatureCelsius=" + String(dhtTemperatureCelsius) + "&dhtTemperatureFahrenhei=" + String(dhtTemperatureFahrenhei) + "&heatIndexCelsius=" + String(heatIndexCelsius) + "&heatIndexFahrenheit=" + String(heatIndexFahrenheit);
+    String waterTempSensor = "?waterTemperatureCelsius=" + String(waterTemperatureCelsius) + "&waterTemperatureFahrenheit=" + String(waterTemperatureFahrenheit);
+    String dhtTempSensor = "&dhtHumidity=" + String(dhtHumidity) + "&dhtTemperatureCelsius=" + String(dhtTemperatureCelsius) + "&dhtTemperatureFahrenheit=" + String(dhtTemperatureFahrenheit) + "&heatIndexCelsius=" + String(heatIndexCelsius) + "&heatIndexFahrenheit=" + String(heatIndexFahrenheit);
     String queryString = waterTempSensor + dhtTempSensor ;
     
     Serial.print("queryString: ");
