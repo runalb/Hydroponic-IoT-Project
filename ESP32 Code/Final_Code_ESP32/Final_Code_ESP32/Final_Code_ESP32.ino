@@ -118,7 +118,7 @@ void loop() {
     HTTPClient http;
 
     // GET query
-    String queryString = "?v1=" + String(temperatureC) + "&v2=" + String(temperatureF);
+    String queryString = "?v1=" + String(temperatureC) + "&v2=" + String(temperatureF) + "&dhtHumidity=" + String(dhtHumidity) + "&dhtCelsiusTemperature=" + String(dhtCelsiusTemperature) + "&dhtFahrenheiTemperature=" + String(dhtFahrenheiTemperature) + "&heatIndexCelsius=" + String(heatIndexCelsius) + "&heatIndexFahrenheit=" + String(heatIndexFahrenheit);
     Serial.print("queryString: ");
     Serial.println(queryString);
     
