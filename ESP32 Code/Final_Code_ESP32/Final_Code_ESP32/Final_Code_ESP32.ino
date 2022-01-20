@@ -1,3 +1,5 @@
+// v2 - Final
+
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <OneWire.h> //library for DS18B20
@@ -121,6 +123,7 @@ void loop() {
     String waterTempSensor = "?waterTemperatureCelsius=" + String(waterTemperatureCelsius) + "&waterTemperatureFahrenhei=" + String(waterTemperatureFahrenhei);
     String dhtTempSensor = "&dhtHumidity=" + String(dhtHumidity) + "&dhtTemperatureCelsius=" + String(dhtTemperatureCelsius) + "&dhtTemperatureFahrenhei=" + String(dhtTemperatureFahrenhei) + "&heatIndexCelsius=" + String(heatIndexCelsius) + "&heatIndexFahrenheit=" + String(heatIndexFahrenheit);
     String queryString = waterTempSensor + dhtTempSensor ;
+    
     Serial.print("queryString: ");
     Serial.println(queryString);
     

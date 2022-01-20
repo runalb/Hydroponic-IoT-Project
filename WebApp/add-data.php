@@ -1,5 +1,6 @@
-
 <?php
+    // v2 - Final
+
     // Database Credentials
     $servername = "localhost";
     $username = "root";
