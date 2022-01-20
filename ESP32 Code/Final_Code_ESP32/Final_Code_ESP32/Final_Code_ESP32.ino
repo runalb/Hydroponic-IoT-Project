@@ -22,6 +22,7 @@ DallasTemperature sensors(&oneWire);
 // ----------- [END] Water temp sensor: DS18B20 --------------- 
 
 
+
 // ----------- Temp sensor: DHT --------------- 
 // Uncomment whatever type you're using!
 #define DHTTYPE DHT11   // DHT 11
@@ -29,7 +30,6 @@ DallasTemperature sensors(&oneWire);
 //#define DHTTYPE DHT21   // DHT 21 (AM2301)
 DHT dht(DHTPIN, DHTTYPE);
 // ----------- [END] Temp sensor: DHT --------------- 
-
 
 
 
@@ -74,13 +74,14 @@ void loop() {
   sensors.requestTemperatures(); 
   float waterTemperatureCelsius = sensors.getTempCByIndex(0);
   float waterTemperatureFahrenheit = sensors.getTempFByIndex(0);
-  
+
   // Print DS18B20 - Water Temp Sensor Values on Serial Monitor
   Serial.println("DS18B20 - Water Temp Sensor: ");
   Serial.println("  waterTemperatureCelsius: " + String(waterTemperatureCelsius) + "°C");
   Serial.println("  waterTemperatureFahrenheit: " +  String(waterTemperatureFahrenheit) + "°F");
   Serial.println(" ");
   // ----------- [END] Water temp sensor: DS18B20 --------------- 
+
 
 
   // ----------- Temp sensor: DHT ---------------
@@ -161,6 +162,6 @@ void loop() {
   else {
     Serial.println("WiFi Disconnected");
   }
-  //Send an HTTP GET request every -- seconds
+  //delay  -- seconds
   delay(100000);  
 }
