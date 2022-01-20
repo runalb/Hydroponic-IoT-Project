@@ -3,15 +3,13 @@
 // - DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
 // - Adafruit Unified Sensor Lib: https://github.com/adafruit/Adafruit_Sensor
 
-#include "DHT.h"
+#include <DHT.h> //library for DHT temp sensor
 
-#define DHTPIN 4     // Digital pin connected to the DHT sensor
-// Feather HUZZAH ESP8266 note: use pins 3, 4, 5, 12, 13 or 14 --
-// Pin 15 can work but DHT must be disconnected during program upload.
+#define DHTPIN 2     // D2
 
 // Uncomment whatever type you're using!
-//#define DHTTYPE DHT11   // DHT 11
-#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+#define DHTTYPE DHT11   // DHT 11
+//#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 //#define DHTTYPE DHT21   // DHT 21 (AM2301)
 
 // Connect pin 1 (on the left) of the sensor to +5V
@@ -40,32 +38,37 @@ void loop() {
 
   // Reading temperature or humidity takes about 250 milliseconds!
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-  float h = dht.readHumidity();
+  float dhtHumidity = dht.readHumidity();
   // Read temperature as Celsius (the default)
-  float t = dht.readTemperature();
+  float dhtCelsiusTemperature = dht.readTemperature();
   // Read temperature as Fahrenheit (isFahrenheit = true)
-  float f = dht.readTemperature(true);
+  float dhtFahrenheiTemperature = dht.readTemperature(true);
 
   // Check if any reads failed and exit early (to try again).
-  if (isnan(h) || isnan(t) || isnan(f)) {
+  if (isnan(dhtHumidity) || isnan(dhtCelsiusTemperature) || isnan(dhtFahrenheiTemperature)) {
     Serial.println(F("Failed to read from DHT sensor!"));
     return;
   }
-
-  // Compute heat index in Fahrenheit (the default)
-  float hif = dht.computeHeatIndex(f, h);
+  
   // Compute heat index in Celsius (isFahreheit = false)
-  float hic = dht.computeHeatIndex(t, h, false);
+  float heatIndexCelsius = dht.computeHeatIndex(dhtCelsiusTemperature, dhtHumidity, false);
+  // Compute heat index in Fahrenheit (the default)
+  float heatIndexFahrenheit = dht.computeHeatIndex(dhtFahrenheiTemperature, dhtHumidity);
+  
 
   Serial.print(F("Humidity: "));
-  Serial.print(h);
-  Serial.print(F("%  Temperature: "));
-  Serial.print(t);
+  Serial.print(dhtHumidity);
+  Serial.print(F("% "));
+  
+  Serial.print(F("Temperature: "));
+  Serial.print(dhtCelsiusTemperature);
   Serial.print(F("°C "));
-  Serial.print(f);
-  Serial.print(F("°F  Heat index: "));
-  Serial.print(hic);
+  Serial.print(dhtFahrenheiTemperature);
+  Serial.print(F("°F "));
+  
+  Serial.print(F("Heat index: "));
+  Serial.print(heatIndexCelsius);
   Serial.print(F("°C "));
-  Serial.print(hif);
+  Serial.print(heatIndexFahrenheit);
   Serial.println(F("°F"));
 }
