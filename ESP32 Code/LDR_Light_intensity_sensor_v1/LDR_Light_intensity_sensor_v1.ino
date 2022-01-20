@@ -1,4 +1,4 @@
-#define LDRPIN 13   // D13 (ADC0) is connected to LDR 
+#define LDRPIN 13   // D13 (ADC) is connected to LDR 
 
 void setup() {
   // Start the Serial Monitor
