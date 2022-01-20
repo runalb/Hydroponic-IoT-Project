@@ -69,11 +69,11 @@ void loop() {
   
   // ----------- Water temp sensor: DS18B20 --------------- 
   sensors.requestTemperatures(); 
-  float temperatureC = sensors.getTempCByIndex(0);
-  float temperatureF = sensors.getTempFByIndex(0);
-  Serial.print(temperatureC);
+  float waterTemperatureCelsius = sensors.getTempCByIndex(0);
+  float waterTemperatureFahrenhei = sensors.getTempFByIndex(0);
+  Serial.print(waterTemperatureCelsius);
   Serial.println("ºC");
-  Serial.print(temperatureF);
+  Serial.print(waterTemperatureFahrenhei);
   Serial.println("ºF");
   // ----------- [END] Water temp sensor: DS18B20 --------------- 
 
