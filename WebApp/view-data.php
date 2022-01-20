@@ -36,11 +36,13 @@
 				<thead>
 					<tr>
 						<th scope='col'>Timestamp</th>
-						<th scope='col'>value1</th>
-						<th scope='col'>value2</th>
-						<th scope='col'>value3</th>
-						<th scope='col'>value4</th>
-						<th scope='col'>value5</th>
+						<th scope='col'>waterTemperatureCelsius</th>
+						<th scope='col'>waterTemperatureFahrenheit</th>
+						<th scope='col'>dhtHumidity</th>
+						<th scope='col'>dhtTemperatureCelsius</th>
+						<th scope='col'>dhtTemperatureFahrenheit</th>
+						<th scope='col'>heatIndexCelsius</th>
+						<th scope='col'>heatIndexFahrenheit</th>
 					</tr>
 				</thead>
 				<tbody>";
@@ -48,11 +50,13 @@
 		{
 			echo"<tr>
 					<td>{$row['timestamp']}</td>
-					<td>{$row['value1']}</td>
-					<td>{$row['value2']}</td>
-					<td>{$row['value3']}</td>
-					<td>{$row['value4']}</td>
-					<td>{$row['value5']}</td>
+					<td>{$row['waterTemperatureCelsius']}</td>
+					<td>{$row['waterTemperatureFahrenheit']}</td>
+					<td>{$row['dhtHumidity']}</td>
+					<td>{$row['dhtTemperatureCelsius']}</td>
+					<td>{$row['dhtTemperatureFahrenheit']}</td>
+					<td>{$row['heatIndexCelsius']}</td>
+					<td>{$row['heatIndexFahrenheit']}</td>
 				</tr>";
 		}
 		echo'</tbody></table>';
