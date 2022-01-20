@@ -10,6 +10,7 @@
 // ----------- Sensors Connected to GPIO Pins --------------- 
 #define oneWireBus 4  //D4 is connected to DS18B20 water temp sensor
 #define DHTPIN 2     // D2 is connected to DHT temp sensor
+#define LDRPIN 13   // D13 (ADC) is connected to LDR 
 
 
 
@@ -106,7 +107,17 @@ void loop() {
   // ----------- [END] Temp sensor: DHT --------------- 
 
 
+
+  // ----------- LDR - Light Intensity Sensor --------------- 
+  int ldrLightIntensity = analogRead(LDRPIN);
+  // Print LDR Sensor Values on Serial Monitor
+  Serial.println("LDR - Light Intensity Sensor: ");
+  Serial.println("  ldrLightIntensity: " + String(ldrLightIntensity));
+  Serial.println(" ");
+  // ----------- [END] LDR - Light Intensity Sensor --------------- 
   
+
+
   // -------- WIFI --------
   //Check WiFi connection status
   if(WiFi.status()== WL_CONNECTED){
@@ -116,7 +127,9 @@ void loop() {
     // GET query
     String waterTempSensor = "?waterTemperatureCelsius=" + String(waterTemperatureCelsius) + "&waterTemperatureFahrenheit=" + String(waterTemperatureFahrenheit);
     String dhtTempSensor = "&dhtHumidity=" + String(dhtHumidity) + "&dhtTemperatureCelsius=" + String(dhtTemperatureCelsius) + "&dhtTemperatureFahrenheit=" + String(dhtTemperatureFahrenheit) + "&heatIndexCelsius=" + String(heatIndexCelsius) + "&heatIndexFahrenheit=" + String(heatIndexFahrenheit);
-    String queryString = waterTempSensor + dhtTempSensor ;
+    String ldrSensor = "&ldrLightIntensity=" + String(ldrLightIntensity);
+    
+    String queryString = waterTempSensor + dhtTempSensor + ldrSensor ;
     
     Serial.print("queryString: ");
     Serial.println(queryString);
