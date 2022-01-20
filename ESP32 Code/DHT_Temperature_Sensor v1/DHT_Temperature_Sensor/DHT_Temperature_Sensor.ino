@@ -26,7 +26,7 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println(F("DHTxx test!"));
 
   dht.begin();
@@ -40,12 +40,12 @@ void loop() {
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
   float dhtHumidity = dht.readHumidity();
   // Read temperature as Celsius (the default)
-  float dhtCelsiusTemperature = dht.readTemperature();
+  float dhtTemperatureCelsius = dht.readTemperature();
   // Read temperature as Fahrenheit (isFahrenheit = true)
-  float dhtFahrenheiTemperature = dht.readTemperature(true);
+  float dhtTemperatureFahrenhei = dht.readTemperature(true);
 
   // Check if any reads failed and exit early (to try again).
-  if (isnan(dhtHumidity) || isnan(dhtCelsiusTemperature) || isnan(dhtFahrenheiTemperature)) {
+  if (isnan(dhtHumidity) || isnan(dhtTemperatureCelsius) || isnan(dhtTemperatureFahrenhei)) {
     Serial.println(F("Failed to read from DHT sensor!"));
     return;
   }
@@ -61,9 +61,9 @@ void loop() {
   Serial.print(F("% "));
   
   Serial.print(F("Temperature: "));
-  Serial.print(dhtCelsiusTemperature);
+  Serial.print(dhtTemperatureCelsius);
   Serial.print(F("°C "));
-  Serial.print(dhtFahrenheiTemperature);
+  Serial.print(dhtTemperatureFahrenhei);
   Serial.print(F("°F "));
   
   Serial.print(F("Heat index: "));
