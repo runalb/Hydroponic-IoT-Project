@@ -18,15 +18,15 @@
 
     // Get Data from HTTP request
     $v1 = $_GET["waterTemperatureCelsius"];
-    $v2 = $_GET["waterTemperatureFahrenhei"];
+    $v2 = $_GET["waterTemperatureFahrenheit"];
     $v3 = $_GET["dhtHumidity"];
     $v4 = $_GET["dhtTemperatureCelsius"];
-    $v5 = $_GET["dhtTemperatureFahrenhei"];
+    $v5 = $_GET["dhtTemperatureFahrenheit"];
     $v6 = $_GET["heatIndexCelsius"];
     $v7 = $_GET["heatIndexFahrenheit"];
 
     // SQL Query to add data to the DB Table
-    $sql = "INSERT INTO Sensor_Data (waterTemperatureCelsius, waterTemperatureFahrenhei, dhtHumidity, dhtTemperatureCelsius, dhtTemperatureFahrenhei, heatIndexCelsius, heatIndexFahrenheit) VALUES ('$v1', '$v2', '$v3', '$v4', '$v5', '$v6', '$v7')";
+    $sql = "INSERT INTO Sensor_Data (waterTemperatureCelsius, waterTemperatureFahrenheit, dhtHumidity, dhtTemperatureCelsius, dhtTemperatureFahrenheit, heatIndexCelsius, heatIndexFahrenheit) VALUES ('$v1', '$v2', '$v3', '$v4', '$v5', '$v6', '$v7')";
 
     // Add data to DB
     if ($conn->query($sql) === TRUE) {
