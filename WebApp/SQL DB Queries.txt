@@ -13,11 +13,13 @@ CREATE DATABASE hydroponic_sensor_db
 
 CREATE TABLE Sensor_Data (
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    value1 VARCHAR(50),
-    value2 VARCHAR(50),
-    value3 VARCHAR(50),
-    value4 VARCHAR(50),
-    value5 VARCHAR(50)
+    waterTemperatureCelsius VARCHAR(50),
+    waterTemperatureFahrenheit VARCHAR(50),
+    dhtHumidity VARCHAR(50),
+    dhtTemperatureCelsius VARCHAR(50),
+    dhtTemperatureFahrenheit VARCHAR(50),
+    heatIndexCelsius VARCHAR(50),
+    heatIndexFahrenheit VARCHAR(50)
 )
 
 
