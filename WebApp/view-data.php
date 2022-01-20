@@ -43,6 +43,7 @@
 						<th scope='col'>dhtTemperatureFahrenheit</th>
 						<th scope='col'>heatIndexCelsius</th>
 						<th scope='col'>heatIndexFahrenheit</th>
+						<th scope='col'>ldrLightIntensity</th>
 					</tr>
 				</thead>
 				<tbody>";
@@ -57,6 +58,7 @@
 					<td>{$row['dhtTemperatureFahrenheit']}</td>
 					<td>{$row['heatIndexCelsius']}</td>
 					<td>{$row['heatIndexFahrenheit']}</td>
+					<td>{$row['ldrLightIntensity']}</td>
 				</tr>";
 		}
 		echo'</tbody></table>';
