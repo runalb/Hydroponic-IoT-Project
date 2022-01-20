@@ -1,11 +1,14 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
-#include <OneWire.h>
-#include <DallasTemperature.h>
+#include <OneWire.h> //library for DS18B20
+#include <DallasTemperature.h> //library for DS18B20
+
+// ----------- Sensors Connected to GPIO Pins --------------- 
+// GPIO where the DS18B20 is connected to
+#define oneWireBus 4  //D4
+
 
 // ----------- Water temp sensor: DS18B20 --------------- 
-// GPIO where the DS18B20 is connected to
-#define oneWireBus 4
 // Setup a oneWire instance to communicate with any OneWire devices
 OneWire oneWire(oneWireBus);
 // Pass our oneWire reference to Dallas Temperature sensor 
@@ -98,6 +101,4 @@ void loop() {
   }
   //Send an HTTP GET request every -- seconds
   delay(100000);  
-  
- 
 }
