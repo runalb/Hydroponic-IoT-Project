@@ -82,9 +82,9 @@ void loop() {
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
   float dhtHumidity = dht.readHumidity();
   // Read temperature as Celsius (the default)
-  float dhtCelsiusTemperature = dht.readTemperature();
+  float dhtTemperatureCelsius = dht.readTemperature();
   // Read temperature as Fahrenheit (isFahrenheit = true)
-  float dhtFahrenheiTemperature = dht.readTemperature(true);
+  float dhtTemperatureFahrenhei = dht.readTemperature(true);
 
   // Compute heat index in Celsius (isFahreheit = false)
   float heatIndexCelsius = dht.computeHeatIndex(dhtCelsiusTemperature, dhtHumidity, false);
@@ -97,9 +97,9 @@ void loop() {
   Serial.print(F("% "));
   
   Serial.print(F("Temperature: "));
-  Serial.print(dhtCelsiusTemperature);
+  Serial.print(dhtTemperatureCelsius);
   Serial.print(F("°C "));
-  Serial.print(dhtFahrenheiTemperature);
+  Serial.print(dhtTemperatureFahrenhei);
   Serial.print(F("°F "));
   
   Serial.print(F("Heat index: "));
@@ -119,7 +119,7 @@ void loop() {
 
     // GET query
     String waterTempSensor = "?waterTemperatureCelsius=" + String(waterTemperatureCelsius) + "&waterTemperatureFahrenhei=" + String(waterTemperatureFahrenhei);
-    String dhtTempSensor = "&dhtHumidity=" + String(dhtHumidity) + "&dhtCelsiusTemperature=" + String(dhtCelsiusTemperature) + "&dhtFahrenheiTemperature=" + String(dhtFahrenheiTemperature) + "&heatIndexCelsius=" + String(heatIndexCelsius) + "&heatIndexFahrenheit=" + String(heatIndexFahrenheit);
+    String dhtTempSensor = "&dhtHumidity=" + String(dhtHumidity) + "&dhtTemperatureCelsius=" + String(dhtTemperatureCelsius) + "&dhtTemperatureFahrenhei=" + String(dhtTemperatureFahrenhei) + "&heatIndexCelsius=" + String(heatIndexCelsius) + "&heatIndexFahrenheit=" + String(heatIndexFahrenheit);
     String queryString = waterTempSensor + dhtTempSensor ;
     Serial.print("queryString: ");
     Serial.println(queryString);
