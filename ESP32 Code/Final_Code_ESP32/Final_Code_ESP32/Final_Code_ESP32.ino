@@ -1,4 +1,4 @@
-// v2 - Final
+// v3
 
 #include <WiFi.h>
 #include <HTTPClient.h>
@@ -73,10 +73,12 @@ void loop() {
   sensors.requestTemperatures(); 
   float waterTemperatureCelsius = sensors.getTempCByIndex(0);
   float waterTemperatureFahrenheit = sensors.getTempFByIndex(0);
-  Serial.print(waterTemperatureCelsius);
-  Serial.println("ºC");
-  Serial.print(waterTemperatureFahrenheit);
-  Serial.println("ºF");
+  
+  // Print DS18B20 - Water Temp Sensor Values on Serial Monitor
+  Serial.println("DS18B20 - Water Temp Sensor: ");
+  Serial.println("  waterTemperatureCelsius: " + String(waterTemperatureCelsius) + "°C");
+  Serial.println("  waterTemperatureFahrenheit: " +  String(waterTemperatureFahrenheit) + "°F");
+  Serial.println(" ");
   // ----------- [END] Water temp sensor: DS18B20 --------------- 
 
 
@@ -93,22 +95,14 @@ void loop() {
   // Compute heat index in Fahrenheit (the default)
   float heatIndexFahrenheit = dht.computeHeatIndex(dhtTemperatureFahrenheit, dhtHumidity);
   
-  // Print DHT Sensor Values on Serial Monitor
-  Serial.print(F("Humidity: "));
-  Serial.print(dhtHumidity);
-  Serial.print(F("% "));
-  
-  Serial.print(F("Temperature: "));
-  Serial.print(dhtTemperatureCelsius);
-  Serial.print(F("°C "));
-  Serial.print(dhtTemperatureFahrenheit);
-  Serial.print(F("°F "));
-  
-  Serial.print(F("Heat index: "));
-  Serial.print(heatIndexCelsius);
-  Serial.print(F("°C "));
-  Serial.print(heatIndexFahrenheit);
-  Serial.println(F("°F"));
+  // Print DHT - Temp Sensor Values on Serial Monitor
+  Serial.println("DHT - Temp Sensor: ");
+  Serial.println("  dhtHumidity: " + String(dhtHumidity) + "%");
+  Serial.println("  dhtTemperatureCelsius: " + String(dhtTemperatureCelsius) + "°C");
+  Serial.println("  dhtTemperatureFahrenheit: " + String(dhtTemperatureFahrenheit) + "°F");
+  Serial.println("  heatIndexCelsius: " + String(heatIndexCelsius) + "°C");
+  Serial.println("  heatIndexFahrenheit: " + String(heatIndexFahrenheit) + "°F");
+  Serial.println(" ");
   // ----------- [END] Temp sensor: DHT --------------- 
 
 
