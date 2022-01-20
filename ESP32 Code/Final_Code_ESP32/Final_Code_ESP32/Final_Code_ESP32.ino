@@ -2,10 +2,13 @@
 #include <HTTPClient.h>
 #include <OneWire.h> //library for DS18B20
 #include <DallasTemperature.h> //library for DS18B20
+#include <DHT.h> //library for DHT temp sensor
+
 
 // ----------- Sensors Connected to GPIO Pins --------------- 
-// GPIO where the DS18B20 is connected to
-#define oneWireBus 4  //D4
+#define oneWireBus 4  //D4 is connected to DS18B20 water temp sensor
+#define DHTPIN 2     // D2 is connected to DHT temp sensor
+
 
 
 // ----------- Water temp sensor: DS18B20 --------------- 
@@ -14,6 +17,17 @@ OneWire oneWire(oneWireBus);
 // Pass our oneWire reference to Dallas Temperature sensor 
 DallasTemperature sensors(&oneWire);
 // ----------- [END] Water temp sensor: DS18B20 --------------- 
+
+
+// ----------- Temp sensor: DHT --------------- 
+// Uncomment whatever type you're using!
+#define DHTTYPE DHT11   // DHT 11
+//#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+//#define DHTTYPE DHT21   // DHT 21 (AM2301)
+DHT dht(DHTPIN, DHTTYPE);
+// ----------- [END] Temp sensor: DHT --------------- 
+
+
 
 
 // ------------- WIFI ---------------
@@ -29,8 +43,12 @@ void setup() {
   
   // Start the Serial Monitor
   Serial.begin(115200);
+  
   // Start the DS18B20 sensor
   sensors.begin();
+  
+  // Start the DHT sensor
+  dht.begin(); 
 
   // -------- WIFI --------
   WiFi.begin(wifi_ssid, wifi_password);
@@ -58,6 +76,38 @@ void loop() {
   Serial.print(temperatureF);
   Serial.println("ºF");
   // ----------- [END] Water temp sensor: DS18B20 --------------- 
+
+
+  // ----------- Temp sensor: DHT ---------------
+  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
+  float dhtHumidity = dht.readHumidity();
+  // Read temperature as Celsius (the default)
+  float dhtCelsiusTemperature = dht.readTemperature();
+  // Read temperature as Fahrenheit (isFahrenheit = true)
+  float dhtFahrenheiTemperature = dht.readTemperature(true);
+
+  // Compute heat index in Celsius (isFahreheit = false)
+  float heatIndexCelsius = dht.computeHeatIndex(dhtCelsiusTemperature, dhtHumidity, false);
+  // Compute heat index in Fahrenheit (the default)
+  float heatIndexFahrenheit = dht.computeHeatIndex(dhtFahrenheiTemperature, dhtHumidity);
+  
+  // Print DHT Sensor Values on Serial Monitor
+  Serial.print(F("Humidity: "));
+  Serial.print(dhtHumidity);
+  Serial.print(F("% "));
+  
+  Serial.print(F("Temperature: "));
+  Serial.print(dhtCelsiusTemperature);
+  Serial.print(F("°C "));
+  Serial.print(dhtFahrenheiTemperature);
+  Serial.print(F("°F "));
+  
+  Serial.print(F("Heat index: "));
+  Serial.print(heatIndexCelsius);
+  Serial.print(F("°C "));
+  Serial.print(heatIndexFahrenheit);
+  Serial.println(F("°F"));
+  // ----------- [END] Temp sensor: DHT --------------- 
 
 
   
