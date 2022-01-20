@@ -24,9 +24,12 @@
     $v5 = $_GET["dhtTemperatureFahrenheit"];
     $v6 = $_GET["heatIndexCelsius"];
     $v7 = $_GET["heatIndexFahrenheit"];
+    $v8 = $_GET["ldrLightIntensity"];
+
+    
 
     // SQL Query to add data to the DB Table
-    $sql = "INSERT INTO Sensor_Data (waterTemperatureCelsius, waterTemperatureFahrenheit, dhtHumidity, dhtTemperatureCelsius, dhtTemperatureFahrenheit, heatIndexCelsius, heatIndexFahrenheit) VALUES ('$v1', '$v2', '$v3', '$v4', '$v5', '$v6', '$v7')";
+    $sql = "INSERT INTO Sensor_Data (waterTemperatureCelsius, waterTemperatureFahrenheit, dhtHumidity, dhtTemperatureCelsius, dhtTemperatureFahrenheit, heatIndexCelsius, heatIndexFahrenheit, ldrLightIntensity) VALUES ('$v1', '$v2', '$v3', '$v4', '$v5', '$v6', '$v7', '$v8')";
 
     // Add data to DB
     if ($conn->query($sql) === TRUE) {
