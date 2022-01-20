@@ -19,7 +19,8 @@ CREATE TABLE Sensor_Data (
     dhtTemperatureCelsius VARCHAR(50),
     dhtTemperatureFahrenheit VARCHAR(50),
     heatIndexCelsius VARCHAR(50),
-    heatIndexFahrenheit VARCHAR(50)
+    heatIndexFahrenheit VARCHAR(50),
+    ldrLightIntensity VARCHAR(50)
 )
 
 
