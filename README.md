@@ -5,7 +5,7 @@
 * https://www.youtube.com/watch?v=DvUvWrdaCQY
 
 **Pinout of ESP32-WROOM-32 GPIOs:**
-![image](https://github.com/runalb/Hydroponic-IoT-Project/blob/master/ESP32-Pinout.jpg?raw=true)
+![image](https://github.com/runalb/Hydroponic-IoT-Project/blob/ESP32-Pinout.jpg?raw=true)
 
 
 
