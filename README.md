@@ -20,7 +20,6 @@
 
 
 -----------------------------------------------------------------------------------
-
  
 **1.	DHT11/DHT22 Temperature and Humidity Sensor add 10k ohm resistor [Digital] –**
 * https://randomnerdtutorials.com/esp32-dht11-dht22-temperature-humidity-sensor-arduino-ide/ 
