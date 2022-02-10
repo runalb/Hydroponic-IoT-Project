@@ -13,20 +13,20 @@ https://www.youtube.com/watch?v=DvUvWrdaCQY
 
 
 **GPIO pin numbers defined in code to connect sensors**
-D2 – DHT11 Temp Sensor
-D4 – DS18B20 Water Temp Sensor
-D13 – LDR input
-D12 - ph sensor input
+* D2 – DHT11 Temp Sensor
+* D4 – DS18B20 Water Temp Sensor
+* D13 – LDR input
+* D12 - ph sensor input
 
 
 -----------------------------------------------------------------------------------
 
  
-**1.	DHT11/DHT22 Temperature and Humidity Sensor add 10k ohm resistor [Digital] – 	**
+**1.	DHT11/DHT22 Temperature and Humidity Sensor add 10k ohm resistor [Digital] –**
 * https://randomnerdtutorials.com/esp32-dht11-dht22-temperature-humidity-sensor-arduino-ide/ 
 * https://esp32io.com/tutorials/esp32-temperature-humidity-sensor
 
-**2.	LDR Light Dependent Resistor [Analog] add 10k ohm resistor – **
+**2.	LDR Light Dependent Resistor [Analog] add 10k ohm resistor –**
 *	Tutorial - https://esp32io.com/tutorials/esp32-light-sensor
 
 **3.	pH Sensor [Analog]-**
