@@ -1,5 +1,5 @@
 <?php
-    // v2 - Final
+    // v3 - Final
 
     // Database Credentials
     $servername = "localhost";
@@ -25,11 +25,13 @@
     $v6 = $_GET["heatIndexCelsius"];
     $v7 = $_GET["heatIndexFahrenheit"];
     $v8 = $_GET["ldrLightIntensity"];
+    $v9 = $_GET["phValue"];
+
 
     
 
     // SQL Query to add data to the DB Table
-    $sql = "INSERT INTO Sensor_Data (waterTemperatureCelsius, waterTemperatureFahrenheit, dhtHumidity, dhtTemperatureCelsius, dhtTemperatureFahrenheit, heatIndexCelsius, heatIndexFahrenheit, ldrLightIntensity) VALUES ('$v1', '$v2', '$v3', '$v4', '$v5', '$v6', '$v7', '$v8')";
+    $sql = "INSERT INTO Sensor_Data (waterTemperatureCelsius, waterTemperatureFahrenheit, dhtHumidity, dhtTemperatureCelsius, dhtTemperatureFahrenheit, heatIndexCelsius, heatIndexFahrenheit, ldrLightIntensity, phValue) VALUES ('$v1', '$v2', '$v3', '$v4', '$v5', '$v6', '$v7', '$v8', '$v9')";
 
     // Add data to DB
     if ($conn->query($sql) === TRUE) {
