@@ -11,7 +11,7 @@
 
 -----------------------------------------------------------------------------------
 
-**Connect sensor to ESP32 GPIO Pins. GPIO pin numbers defined in code to connect sensor -**
+**Connect sensor to ESP32 GPIO Pins. GPIO pin numbers defined in the code to connect sensors respectively-**
 
 * D2 – DHT11 Temp Sensor
 * D4 – DS18B20 Water Temp Sensor
